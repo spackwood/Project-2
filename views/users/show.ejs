@@ -1,0 +1,9 @@
+<% gameData.forEach(function (game) { %>
+  <br>
+<img src="<%= game.image.thumb_url %>" alt="">
+<!-- <%= game.description %> -->
+<% if (game.platforms) { %>
+  <p><a href="game"><%= game.platforms[0].name %></p></a>
+<% } %>
+<br>
+<% }) %>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Streaming Gamer</title>
+  <title>Streaming Gamer</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- Google Icon Fonts used by Materialize -->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <!-- JavaScript for Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="" class="brand-logo left">Streaming Gamer</a>
+        <ul class="right">
+          <li>
+            <% if (user) { %>
+                <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+            <% } else { %>
+                <a href="/auth/twitch"><i class="material-icons left">vpn_key</i>Login with Twitch</a>
+            <% } %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="row">
+        <div class="col-xs-5 col-xs-offset-5">
+          <form action="/" method="POST">
+            <div class="input-group">
+              <input type="text" name="gamename" class="form-control"
+                  placeholder="Enter Game Name">
+              <span class="input-group-btn">
+                <button class="btn btn-success"
+                  type="submit">Go!</button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>	
+      <hr>
+      <div class="row col-xs-8 col-xs-offset-2">
+        
+        <% if (gameData) { %>
+          <% gameData.results.forEach(function(result, index) { %>
+            <p><a href="reviews/<%=result.name%>/show"><%= result.name%></p></a>
+          <% }) %>
+        <% } else { %>
+          <h3 class="text-center text-info">
+            Submit a game!
+          </h3>
+          <% } %>
+      </div>
+</body>
+</html>
